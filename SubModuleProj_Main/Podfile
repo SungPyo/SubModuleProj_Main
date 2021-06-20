@@ -1,0 +1,15 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '14.0'
+
+# 보통 서브모듈은 프로젝트에 여러개라서 배열로 선언
+subModules = ['SubProj','SPUtils']
+
+target 'SubModuleProj_Main' do
+use_frameworks!
+#묶어서 한번에 인스톨 하려구여
+    subModules.each do |subMoudle|
+        pod subMoudle, :path => '../'+subMoudle
+    end
+
+end
+# Pods for SubModuleProj_Main
